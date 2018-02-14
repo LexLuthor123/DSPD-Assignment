@@ -31,7 +31,7 @@ void InsertPANNode(P_NODE **PHead,PData input)
 {
 	P_NODE *new_node,*current;
 	new_node = (P_NODE *)malloc(sizeof(P_NODE));
-	new_node->P= input;
+	(new_node->P) = input;
 	new_node->PANNext = NULL;
 	   // Special case for the head end 
     if (*PHead == NULL || strcmp ( (  ((*PHead)->P).AadharPan.AadharNumber) , ( (new_node->P).AadharPan.AadharNumber ) ) >= 0)
@@ -44,7 +44,7 @@ void InsertPANNode(P_NODE **PHead,PData input)
         // Locate the node before the point of insertion 
         current = *PHead;
         while (current->PANNext!=NULL &&
-              strcmp ( (current->PANNext->P).AadharPan.AadharNumber, (new_node->P).AadharPan.AadharNumber ) < 0)
+              strcmp ( ((current->PANNext->P).AadharPan).AadharNumber, ((new_node->P).AadharPan).AadharNumber ) < 0)
         {
             current = current->PANNext;
         }
