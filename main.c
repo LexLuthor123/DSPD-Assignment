@@ -4,9 +4,9 @@
 
 void main()
 {
-	int flag = 1;
+	int flag = 1, num, option;
 	A_NODE *listA;
-	int option;
+	P_NODE *listP; 
 	while(flag)
 	{
           	Menu();
@@ -16,17 +16,28 @@ void main()
 			{
 			case 1: 
 		    	printf("You have Entered to Aadhar List \n");
-		    	int num;
 		    	printf("Enter How many Entries You want to enter in the List: ");
 		    	scanf("%d",&num);
 		    	printf("\n");
 		    	system("cls");
 		    	listA = CreateAadharList(num);
 		    	break;
+		    case 2:
+		    	printf("You have Entered the Pan Details option \n");
+		    	printf("Enter How many Entries You want to enter in the List: ");
+		    	scanf("%d",&num);
+		    	printf("\n");
+		    	system("cls");
+		    	listP = CreatePANList(num);
 			case 5:
 				system("cls");
 				printf("The Required List is as following: \n");
 				DisplayAadharList(listA);
+				break;
+			case 6:
+				system("cls");
+				printf("The Required List is as following: \n");
+				DisplayPANList(listP);
 				break;
 			default:
 		    	printf("Options UnAvailable. Work in Progress!!\n");

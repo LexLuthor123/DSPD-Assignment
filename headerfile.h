@@ -10,7 +10,7 @@ typedef enum {FALSE,TRUE}BOOL;
 typedef struct AadharData
 {
 	char AName[20];
-	char AadharNumber[12];
+	char AadharNumber[20];
 	char Address[30];
 	
 }AData;
@@ -23,7 +23,7 @@ typedef struct AadharTag
 typedef struct PANData
 {
     AData AadharPan;
-	char PANNumber[10];
+	char PANNumber[15];
 }PData;
 typedef struct PanTag
 {
@@ -34,7 +34,7 @@ typedef struct PanTag
 typedef struct BankData
 {
 	PData PanBank;
-	char BankName[10];
+	char BankName[30];
 	char AccountNumber[25];
 	float Balance;
 }BData;
@@ -66,10 +66,10 @@ void DisplayAadharList(A_NODE *aptr);
 void DisplayPANList(P_NODE *pptr);
 void DisplayBankList(B_NODE *bptr);
 void DisplayLPGList(L_NODE *lptr);
-A_NODE* InsertAadharNode(A_NODE *AHead,AData *input);
-P_NODE* InsertPANNode(P_NODE *PHead,PData *input);
-B_NODE* InsertBankNode(B_NODE *BHead,BData *input);
-L_NODE* InsertLPGNode(L_NODE *LHead,LData *input);
+void InsertAadharNode(A_NODE **AHead,AData input);
+void InsertPANNode(P_NODE **PHead,PData input);
+void InsertBankNode(B_NODE **BHead,BData input);
+void InsertLPGNode(L_NODE **LHead,LData input);
 
 BOOL CompareAadharNodes(AData A1 , AData A2);
 
