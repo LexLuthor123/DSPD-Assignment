@@ -29,6 +29,7 @@ void main()
 		    	printf("\n");
 		    	system("cls");
 		    	listP = CreatePANList(num);
+		    	break;
 			case 5:
 				system("cls");
 				printf("The Required List is as following: \n");

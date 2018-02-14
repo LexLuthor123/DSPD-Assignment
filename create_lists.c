@@ -23,6 +23,7 @@ P_NODE* CreatePANList(int n)
 		printf("\n");
 	    InsertPANNode(&head,insert);
 		printf("-----------------------------------------------------------------------------\n");
+	
     }
 	return head;
 }
@@ -30,11 +31,13 @@ P_NODE* CreatePANList(int n)
 void InsertPANNode(P_NODE **PHead,PData input)
 {
 	P_NODE *new_node,*current;
+	PData HeadP,TempP;
 	new_node = (P_NODE *)malloc(sizeof(P_NODE));
-	new_node->P= input;
+	new_node->P = input;
 	new_node->PANNext = NULL;
+	HeadP = (*PHead)->P  ;
 	   // Special case for the head end 
-    if (*PHead == NULL || strcmp ( (  ((*PHead)->P).AadharPan.AadharNumber) , ( (new_node->P).AadharPan.AadharNumber ) ) >= 0)
+    if (*PHead == NULL || strcmp ( HeadP.AadharPan.AadharNumber, input.AadharPan.AadharNumber ) >= 0)
     {
         new_node->PANNext = *PHead;
         *PHead = new_node;
@@ -43,10 +46,11 @@ void InsertPANNode(P_NODE **PHead,PData input)
     {
         // Locate the node before the point of insertion 
         current = *PHead;
-        while (current->PANNext!=NULL &&
-              strcmp ( (current->PANNext->P).AadharPan.AadharNumber, (new_node->P).AadharPan.AadharNumber ) < 0)
+        TempP = current->PANNext->P;
+        while ( current->PANNext!=NULL && strcmp ( TempP.AadharPan.AadharNumber, input.AadharPan.AadharNumber ) < 0)
         {
             current = current->PANNext;
+            TempP = current->PANNext->P;
         }
         new_node->PANNext = current->PANNext;
         current->PANNext = new_node;
