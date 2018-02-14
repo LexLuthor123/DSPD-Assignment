@@ -40,6 +40,23 @@ void main()
 				printf("The Required List is as following: \n");
 				DisplayPANList(listP);
 				break;
+			case 9:	/* Print the data of those people who have valid Aadhar info but no PAN info */
+				system("cls");
+				
+				if(listA!=NULL && listP != NULL)
+				{
+					AadharButNoPAN(listA,listP);
+				}
+				else
+				{
+					printf("Either of the List is empty. Try Again!!\n");
+					waitFor(5);
+				}
+				break;
+			case 0:
+				printf("Thank You!!!\n");
+				flag = 0;
+				break;	
 			default:
 		    	printf("Options UnAvailable. Work in Progress!!\n");
 		    	flag = 0;
@@ -51,14 +68,18 @@ void Menu()
 {
 	system("cls");
 	printf("*****************************************************************************************\n");
+	printf("Data Input Functions: \n");
 	printf("\t1) Enter Aadhar Details.\n");
 	printf("\t2) Enter PAN Details.\n");
 	printf("\t3) Enter Bank Account Details.\n");
 	printf("\t4) Enter LPG Subscription Details.\n");
+	printf("Display Functions: \n");
 	printf("\t5) Display Aadhar Details.\n");
 	printf("\t6) Display PAN Details.\n");
 	printf("\t7) Display Bank Account Details.\n");
-	printf("\t8) Display LPG Subscription Details.\n\n");
+	printf("\t8) Display LPG Subscription Details.\n");
+	printf("Objective Functions: \n");
+	printf("\t9) Print the data of those people who have valid Aadhar info but no PAN info\n");
 	printf("\t Press 0 to close\n");
 	printf("*****************************************************************************************\n");
 }
